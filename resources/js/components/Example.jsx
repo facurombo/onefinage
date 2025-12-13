@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Example from './components/Example';
-
 
 function Example() {
     return (
@@ -21,12 +19,14 @@ function Example() {
 
 export default Example;
 
-if (document.getElementById('root')) {
-    const Index = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById('root');
 
-    Index.render(
+if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+
+    root.render(
         <React.StrictMode>
-            <Example/>
+            <Example />
         </React.StrictMode>
-    )
+    );
 }
