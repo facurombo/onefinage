@@ -1,13 +1,20 @@
 <?php
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
 | Rutas públicas
 |--------------------------------------------------------------------------
 */
+
+//roles
+$role = Role::create(['name' => 'admin']);
+$role = Role::create(['name' => 'client']);
+
 
 Route::get('/', function () {
     return view('welcome');
