@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+        public function Empresas()
+       {
+        retunr$this->hasMany(Empresa::class);
+        }
 }
