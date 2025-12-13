@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Api\FrontController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\client\EmpresaController as ClientEmpresaController;
@@ -17,8 +16,8 @@ Route::prefix('v1')->group(function(){
 //::public
 Route::get('/public/{slug}', [FrontController::class,'categoria']);
 //::auth
-Route::get('/auth/register', [AuthController::class,'register']);
-Route::get('/auth/login', [AuthController::class,'login']);
+Route::post('/auth/register', [AuthController::class,'register']);
+Route::post('/auth/login', [AuthController::class,'login']);
  
  
 
