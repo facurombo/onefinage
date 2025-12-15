@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Empresa;
+use App\Models\Categoria;
+
 
 class Categoria extends Model
 {
@@ -12,6 +16,6 @@ class Categoria extends Model
 
     public function Empresas()
        {
-        retunr$this->hasMany(Empresa::class);
+        return$this->hasMany(Empresa::class);
         }
 }

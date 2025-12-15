@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\FrontController;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\client\EmpresaController as ClientEmpresaController;
+use App\Http\Controllers\Api\client\EmpresaClient; 
 use App\Http\Controllers\Api\admin\UserController;
 use App\Http\Controllers\Api\admin\CategoriaController;
-use App\Http\Controllers\Api\admin\EmpresaController as AdminEmpresaController;
+use App\Http\Controllers\Api\admin\EmpresaController;
 
 
 
@@ -27,12 +27,12 @@ Route::group (['middleware'=>'auth:sanctum'], function (){
     Route::post('/auth/logout', [AuthController::class,'logout']);
 
     //::rol client
-    Route::apiResource('/client/empresa', ClientEmpresaController::class);
+    Route::apiResource('/client/empresa', EmpresaClient::class);
 
     //:rol admin
     Route::apiResource('/admin/user', UserController::class);
     Route::apiResource('/admin/categoria', CategoriaController::class);
-    Route::apiResource('/admin/empresa', AdminEmpresaController::class);
+    Route::apiResource('/admin/empresa', EmpresaController::class);
 
 });
 
