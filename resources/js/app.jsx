@@ -1,30 +1,48 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import LayoutPublic from "./layouts/LayoutPublic.jsx";
+import LayoutAdmin from "./layouts/LayoutAdmin.jsx";
+import LayoutClient from "./layouts/LayoutClient.jsx";
+import ProtectedRoutes from "./pageauth/ProtectedRoutes.jsx";
+import PageHome from "./pagepublic/PageHome.jsx";
 
 
 const App = () => {
-return (
-    <div>
-        App Codea 
-        <button className='btn btn-success'>Boton</button>
-    </div>
-)
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* PUBLIC */}
+        <Route path="/" element={<LayoutPublic />}>
+          <Route index element={<PageHome />} />
+        </Route>
 
-}
+        {/* PROTECTED */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/admin" element={<LayoutAdmin />}>
+            <Route index element={<PageHome />} />
+          </Route>
+
+          <Route path="/client" element={<LayoutClient />}>
+            <Route index element={<PageHome />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
 if (rootElement) {
-    const root = ReactDOM.createRoot(rootElement);
+  const root = ReactDOM.createRoot(rootElement);
 
-    root.render(
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    );
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
 }
-
-
