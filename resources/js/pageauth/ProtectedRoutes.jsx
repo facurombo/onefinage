@@ -1,12 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-
+import { Outlet, Navigate } from "react-router-dom";
+import AuthUser from "./AuthUser.jsx";
 
 const ProtectedRoutes = () => {
-    return (
-        <Outlet />
-    )
-}
-export default ProtectedRoutes;
+  const { getToken } = AuthUser();
+  const token = getToken();
 
-    
+  if (!token) return <Navigate to="/login" replace />;
+
+  return <Outlet />;
+};
+
+export default ProtectedRoutes;
