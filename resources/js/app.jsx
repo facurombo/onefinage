@@ -8,6 +8,8 @@ import LayoutClient from "./layouts/LayoutClient.jsx";
 import ProtectedRoutes from "./pageauth/ProtectedRoutes.jsx";
 import PageHome from "./pagepublic/PageHome.jsx";
 import Login from "./pageauth/Login.jsx";
+import Register from "./pageauth/Register.jsx";
+
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
         <Route path="/" element={<LayoutPublic />}>
           <Route index element={<PageHome />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Route>
 
         {/* PROTECTED */}

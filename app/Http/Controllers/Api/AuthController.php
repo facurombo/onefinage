@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 
+
 class AuthController extends Controller
 {
    public function register(Request $request)
@@ -33,7 +34,7 @@ class AuthController extends Controller
     $input["password"] = bcrypt($input['password']);
 
     $user = User::create($input);
-    $user->syncRoles(['client']); // (si existe el rol y el User tiene HasRoles)
+    $user->assignRole('client'); // asignar rol
 
     $response["success"] = "true";
     $response["token"] = $user->createToken("Code")->plainTextToken;
