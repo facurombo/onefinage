@@ -63,6 +63,8 @@ class AuthController extends Controller
 
             $response['token'] = $user->createToken('codea.app')->plainTextToken;
             $response['user'] = $user;
+            $response['message'] = 'Inicio de sesión exitoso';
+            
             $response['success'] = true;
         }
 

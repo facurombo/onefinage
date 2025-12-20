@@ -8,13 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 const LayoutClient = () => {
     
     const {getRole} = AuthUser();
     const Navigate = useNavigate();
      
     useEffect(() => {
-        if(getRole() !== 'client'){
+        if(getRole() != 'client'){
             Navigate('/');
         }
     }, []);

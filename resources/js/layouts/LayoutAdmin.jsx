@@ -6,13 +6,14 @@ import AuthUser from "../pageauth/AuthUser.jsx";
 import { useNavigate } from "react-router-dom";
 
 
+
 const LayoutAdmin = () => {
 
     const {getRole} = AuthUser();
     const Navigate = useNavigate();
      
     useEffect(() => {
-        if(getRole() !== 'admin'){
+        if(getRole() != 'admin'){
             Navigate('/');
         }
     }, []);
