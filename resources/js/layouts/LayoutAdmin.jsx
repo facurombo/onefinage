@@ -20,10 +20,15 @@ const LayoutAdmin = () => {
 
     return (
          <> 
-         <h1>Layout Admin</h1>
+         
+            <div className="d-flex flex-column min-vh-100"> 
             <Navbar />
+            <h1>Layout Admin</h1>
+             <main className="flex-grow-1">
             <Outlet />
+            </main>
             <Footer />  
+        </div> 
         </>
     );
 }

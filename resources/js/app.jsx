@@ -11,6 +11,9 @@ import Login from "./pageauth/Login.jsx";
 import Register from "./pageauth/Register.jsx";
 import PanelClient from "./pageclient/PanelClient.jsx";
 import PanelAdmin from "./pageadmin/Paneladmin.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 
 
@@ -23,7 +26,7 @@ const App = () => {
           <Route index element={<PageHome />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-        </Route>
+              </Route>
 
         {/* PROTECTED */}
         <Route element={<ProtectedRoutes />}>

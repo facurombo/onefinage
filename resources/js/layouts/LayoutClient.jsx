@@ -24,10 +24,14 @@ const LayoutClient = () => {
 
     return (         
           <> 
-            <h1>Layout Client</h1>
+            <div className="d-flex flex-column min-vh-100"> 
             <Navbar />
+            <h1>Layout Client</h1>
+             <main className="flex-grow-1">
             <Outlet />
+            </main>
             <Footer />  
+        </div>
         </>
     );
 }    

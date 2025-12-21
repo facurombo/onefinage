@@ -1,15 +1,19 @@
 import axios from "axios";
 
+const base_api_url = "http://localhost:8000/api/v1";
 
-const base_api_url = 'http://localhost:8000/api/v1';
+const api = axios.create({ baseURL: base_api_url });
 
-//route
+api.interceptors.request.use((config) => {
+  const tokenString = sessionStorage.getItem("token");
+  const token = tokenString ? JSON.parse(tokenString) : null;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 export default {
-    //auth
-    getRegister: (data)=>axios.post(`${base_api_url}/auth/register`,data),
-    getLogin: (data)=>axios.post(`${base_api_url}/auth/login`,data),
-    
-}
-
-
+  getRegister: (data) => api.post("/auth/register", data),
+  getLogin: (data) => api.post("/auth/login", data),
+  getLogout: () => api.post("/auth/logout"),
+};
 
