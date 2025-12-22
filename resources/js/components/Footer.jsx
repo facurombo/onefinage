@@ -1,13 +1,14 @@
-import React from "react";  
-
-
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Footer = () => {
-    return (
-    <footer className="bg-dark text-white text-center p-3 mt-4">
-      <p>© 2026 OneFinage. All rights reserved.</p>
+  return (
+    <footer className="bg-dark text-light py-3 mt-auto">
+      <div className="container text-center">
+        <small>© 2026 OneFinage. All rights reserved.</small>
+      </div>
     </footer>
-    );
-}   
-export default Footer;          
+  );
+};
 
+export default Footer;
